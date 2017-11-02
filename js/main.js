@@ -1,37 +1,34 @@
 const sia = {
-    init: function() {
-        /* Loads team gallery */
-        $.ajax({
-            type: "GET",
-            url: "https://scary-zombie-81366.herokuapp.com/superheroes/",
-            success: function (response) {
-                $.each(response, function (i, superhero) { 
-                    const superheroDiv = $('<div>', {
-                        class: "col-lg-3 col-md-4 col-sm-6 col-xs-12 team-item",
-                        id: superhero.name.split(' ').join('-').toLowerCase(),
-                        "data-price": superhero.price,
-                        "data-desc": superhero.description
-                    });
-                    const superheroImg = $('<img>', {
-                        src: "img/superheroes/" + superhero.path,
-                        alt: superhero.name,
-                        class: "img-responsive img-thumbnail",
-                    });
-                    const superheroCaptionDiv = $('<div>', {
-                        class: "caption"
-                    })
-                    const superheroCaptionTitle = $('<h4>', {
-                        text: superhero.name
-                    });
-                    
-                    superheroDiv.append(superheroImg).append(superheroCaptionDiv.append(superheroCaptionTitle));
-                    superheroDiv.click(sia.openHireModal);
-                    $("#team-gallery").append(superheroDiv);
+    init: function() {        
+        fetch('https://scary-zombie-81366.herokuapp.com/superheroes/')
+        .then(function(response){return response.json()})
+        .then(function(response) {
+            $.each(response, function (i, superhero) { 
+                const superheroDiv = $('<div>', {
+                    class: "col-lg-3 col-md-4 col-sm-6 col-xs-12 team-item",
+                    id: superhero.name.split(' ').join('-').toLowerCase(),
+                    "data-price": superhero.price,
+                    "data-desc": superhero.description
                 });
-            },
-            error: function() {
-                $('#noresults-msg').show();
-            }
+                const superheroImg = $('<img>', {
+                    src: "img/superheroes/" + superhero.path,
+                    alt: superhero.name,
+                    class: "img-responsive img-thumbnail",
+                });
+                const superheroCaptionDiv = $('<div>', {
+                    class: "caption"
+                })
+                const superheroCaptionTitle = $('<h4>', {
+                    text: superhero.name
+                });
+                
+                superheroDiv.append(superheroImg).append(superheroCaptionDiv.append(superheroCaptionTitle));
+                superheroDiv.click(sia.openHireModal);
+                $("#team-gallery").append(superheroDiv);
+            });
+        })
+        .catch(function() {
+            $('#noresults-msg').show();
         });
     },
     
@@ -44,7 +41,7 @@ const sia = {
     repositionModal: function(modal) {
         dialog = modal.find('.modal-dialog');
         modal.css('display', 'block');
-
+        
         // Sets a margin top to the modal based on the window height
         const factor = $(window).height() < 768 ? 2 : 3;
         dialog.css("margin-top", Math.max(0, ($(window).height() - dialog.height()) / factor));
@@ -67,7 +64,7 @@ const sia = {
         modal.find('.sh-hire').unbind().one('click', function() {
             sia.addToHired(e);
         });
-
+        
         sia.repositionModal(modal);
     },
     
@@ -189,17 +186,17 @@ const sia = {
             $('#noresults-msg').hide();
         }
     },
-
+    
     /* Removes focus from navbar toggle */
     blurNavbar: function () {
         $('.navbar-toggle').blur();
     },
-
+    
     /* Collapses navigation menu */
     collapseNavbar: function (e) { 
         $('#nav-menu').collapse('hide');
     },
-
+    
     /* Handles touch event on mobile (collapses navbar if expanded) */
     touchEvent: function() {
         const isNavbarCollapsed = $('.navbar-toggle').attr('aria-expanded');
