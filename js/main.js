@@ -27,7 +27,7 @@ const sia = {
                 $("#team-gallery").append(superheroDiv);
             });
         })
-        .catch(function() {
+        .catch(function(error) {
             $('#noresults-msg').show();
         });
     },
