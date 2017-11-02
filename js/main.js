@@ -125,7 +125,7 @@ const sia = {
             marginLeft: '-200px'
         }, 'slow', function() {
             superheroDiv.remove();
-            updateTotal();
+            sia.updateTotal();
         })
     },
     
