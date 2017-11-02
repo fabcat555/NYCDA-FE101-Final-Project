@@ -207,5 +207,6 @@ $(document).ready(function(e) {
  
     $(document).on('touch', function() {
         $('#nav-menu').collapse('hide');
+        alert('touch event fired');
     });
 });
