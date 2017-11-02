@@ -199,7 +199,7 @@ $(document).ready(function(e) {
     /* Callbacks for navbar behavior */
 
     $('#nav-menu').on('hidden.bs.collapse', function () {
-        $('.navbar-toggle').focusout();
+        $('.navbar-toggle').blur();
     });
 
     $('.navbar-toggle').blur(function (e) { 
