@@ -2,7 +2,7 @@ const sia = {
     init: function() {        
         fetch('https://scary-zombie-81366.herokuapp.com/superheroes/')
         .then(function(response) {
-            return response.json();
+            sia.handleErrors(response);
         })
         .then(function(response) {
             $.each(response, function (i, superhero) { 
@@ -31,8 +31,14 @@ const sia = {
         })
         .catch(function(error) {
             $('#noresults-msg').show();
-            throw Error(error);
         });
+    },
+
+    handleErrors: function (response) {
+        if (!response.ok) {
+            throw Error(response.statusText);
+        }
+        return response;
     },
     
     /* Triggers modal on team gallery's items */
