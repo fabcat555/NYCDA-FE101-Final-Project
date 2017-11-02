@@ -40,13 +40,14 @@ const sia = {
         $('#modal-sh').modal('toggle', $(this));
     },
     
+    /* Vertically center modal inside the window */
     repositionModal: function(modal) {
         dialog = modal.find('.modal-dialog');
         modal.css('display', 'block');
 
         // Sets a margin top to the modal based on the window height
-        dialog.css("margin-top", Math.max(0, ($(window).height() - dialog.height()) / 3));
-        console.log('ciaooo');
+        const factor = $(window).height() < 768 ? 2 : 3;
+        dialog.css("margin-top", Math.max(0, ($(window).height() - dialog.height()) / factor));
     },
     
     /* Populates modal with superhero image and description */
@@ -187,6 +188,24 @@ const sia = {
         else {
             $('#noresults-msg').hide();
         }
+    },
+
+    /* Removes focus from navbar toggle */
+    blurNavbar: function () {
+        $('.navbar-toggle').blur();
+    },
+
+    /* Collapses navigation menu */
+    collapseNavbar: function (e) { 
+        $('#nav-menu').collapse('hide');
+    },
+
+    /* Handles touch event on mobile (collapses navbar if expanded) */
+    touchEvent: function() {
+        const isNavbarCollapsed = $('.navbar-toggle').attr('aria-expanded');
+        if (isNavbarCollapsed) {
+            $('#nav-menu').collapse('hide');
+        }
     }
 };
 
@@ -208,19 +227,9 @@ $(document).ready(function(e) {
     $('#days').on('change keyup cut paste input', sia.updateTotal);
     
     /* Callbacks for navbar behavior */
-    $('#nav-menu').on('hidden.bs.collapse', function () {
-        $('.navbar-toggle').blur();
-    });
-    
-    $('.navbar-toggle').blur(function (e) { 
-        $('#nav-menu').collapse('hide');
-    });
+    $('#nav-menu').on('hidden.bs.collapse', sia.blurNavbar);
+    $('.navbar-toggle').on('blur', sia.collapseNavbar);
     
     /* Handles click outside of navbar on mobile */
-    $(document).on('touchstart', function() {
-        const isNavbarCollapsed = $('.navbar-toggle').attr('aria-expanded');
-        if (isNavbarCollapsed) {
-            $('#nav-menu').collapse('hide');
-        }
-    });
+    $(document).on('touchstart', sia.touchEvent);
 });

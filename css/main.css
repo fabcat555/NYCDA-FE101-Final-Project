@@ -622,6 +622,13 @@ address {
     }
 }
 
+@media (max-width: 360px) {
+    .caption h4 {
+        width: 100%;
+    }
+}
+
+
 
 
 
