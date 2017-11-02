@@ -197,7 +197,6 @@ $(document).ready(function(e) {
     $('#days').on('change keyup cut paste input', sia.updateTotal);
     
     /* Callbacks for navbar behavior */
-
     $('#nav-menu').on('hidden.bs.collapse', function () {
         $('.navbar-toggle').blur();
     });
@@ -206,4 +205,7 @@ $(document).ready(function(e) {
         $('#nav-menu').collapse('hide');
     });
  
+    $(document).on('touch', function() {
+        $('#nav-menu').collapse('hide');
+    });
 });
