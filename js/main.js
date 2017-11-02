@@ -197,26 +197,13 @@ $(document).ready(function(e) {
     $('#days').on('change keyup cut paste input', sia.updateTotal);
     
     /* Callbacks for navbar behavior */
-    $('#nav-menu')
-    .on('shown.bs.collapse', function() {
-        $('.navbar-toggle').addClass('nav-active');
-    })
-    .on('hidden.bs.collapse', function() {
-        $('.navbar-toggle').blur();
+
+    $('#nav-menu').on('hidden.bs.collapse', function () {
+        $('.navbar-toggle').focusout();
     });
-    
-    $('.navbar-toggle').focus(function (e) { 
-        $('.navbar-toggle').addClass('nav-active');
-    });
-    $('.navbar-toggle').blur(function (e) {
-        $('.navbar-toggle').removeClass('nav-active');
+
+    $('.navbar-toggle').blur(function (e) { 
         $('#nav-menu').collapse('hide');
     });
-    
-    $('.navbar-toggle').hover(function () {
-        $(this).css('background-color', 'white');
-    }, function () {
-        $(this).css('background-color', 'transparent');
-    }
-);
+ 
 });
