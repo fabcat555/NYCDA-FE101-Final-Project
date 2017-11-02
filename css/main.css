@@ -330,6 +330,7 @@ header {
 #about-us {
     line-height: 1.8em;
     font-size: 1.2em;
+    text-align: justify;
 }
 
 /* Hire us section */
@@ -594,6 +595,7 @@ address {
     .header-mobile {
         display: block;
         text-align: justify;
+        margin-left: 10px;
     }
     
     /* Hire us section */
@@ -602,21 +604,24 @@ address {
         width: 200px;
         height: 150px;
     }
+
+    .inner-even {
+        margin: 0 20px;
+    }
+
+    .caption h4 {
+        width: 200px;
+    }
+
+    #sh-desc {
+        margin-top: 15px;
+    }
     
     #total-price {
         font-size: 1.8em;
     }
-    
-    #sh-desc {
-        margin-top: 15px;
-    }
 }
 
-@media (max-width: 768px) {
-    .caption h4 {
-        width: 200px;
-    }
-}
 
 
 
