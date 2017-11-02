@@ -28,7 +28,7 @@ const sia = {
             });
         })
         .catch(function(error) {
-            console.log(error);
+            throw new Error(error);
             $('#noresults-msg').show();
         });
     },
