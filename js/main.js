@@ -52,6 +52,10 @@ const sia = {
     /* Populates modal with superhero image and description */
     populateModal: function(e) {
         const modal = $(this);
+        const modalBody = modal.find('.modal-body');
+
+        modalBody.css('overflow-y', 'auto'); 
+        modalBody.css('max-height', $(window).height() * 0.7);
         
         const superheroDiv = $(e.relatedTarget); // Element that triggered the modal
         const superheroName = superheroDiv.find('.caption').text();
