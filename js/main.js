@@ -28,6 +28,7 @@ const sia = {
             });
         })
         .catch(function(error) {
+            console.log(error);
             $('#noresults-msg').show();
         });
     },
