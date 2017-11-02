@@ -88,16 +88,12 @@ const sia = {
             alt: superhero.find('img').attr('alt'),
             class: 'img-responsive img-thumbnail hired-img new-hired',
         });
-        const imgOverlay = $('<div>', {
-            class: 'img-overlay'
-        });
-        const removeButton = $('<div>', {
-            class: 'remove-button',
-            text: 'Remove',
+        const removeButton = $('<a>', {
+            class: 'remove-btn',
             "data-target": superhero.attr('id')
         });
         
-        superheroDiv.hide().append(superheroImg).append(imgOverlay.append(removeButton)).fadeIn().css('display', 'inline');
+        superheroDiv.hide().append(superheroImg).append(removeButton).fadeIn().css('display', 'inline');
         setTimeout(function() {
             superheroImg.removeClass('new-hired');
         }, 500);
