@@ -205,7 +205,7 @@ $(document).ready(function(e) {
         $('#nav-menu').collapse('hide');
     });
  
-    $(document).on('touch', function() {
+    $(document).on('click touchend', function() {
         $('#nav-menu').collapse('hide');
         alert('touch event fired');
     });
