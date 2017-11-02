@@ -184,6 +184,10 @@ $(document).ready(function(e) {
     /* Init app */
     sia.init();
     
+    $(document).on('click',function(){
+        $('#nav-menu').collapse('hide');
+    })
+
     /* Sets callback on search box input change */
     $('#search-term').on('change keyup cut paste input', sia.searchSuperhero);
     
