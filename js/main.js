@@ -30,8 +30,8 @@ const sia = {
             });
         })
         .catch(function(error) {
-            throw Error(error);
             $('#noresults-msg').show();
+            throw Error(error);
         });
     },
     
