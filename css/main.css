@@ -376,7 +376,7 @@ header {
     line-height: 1.6em;
     border: 1px solid black;
     text-shadow: 0px 0px 20px black;
-    width: 220px;
+    width: 100%;
     margin-left: auto;
     margin-right: auto;
 }
@@ -609,6 +609,12 @@ address {
     
     #sh-desc {
         margin-top: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .caption h4 {
+        width: 200px;
     }
 }
 
