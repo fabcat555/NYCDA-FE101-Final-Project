@@ -54,6 +54,7 @@ const sia = {
         const modal = $(this);
         const modalBody = modal.find('.modal-body');
 
+        // Adjust modal height based on window height (and set scroll if necessary)
         modalBody.css('overflow-y', 'auto'); 
         modalBody.css('max-height', $(window).height() * 0.7);
         
