@@ -195,4 +195,28 @@ $(document).ready(function(e) {
     
     /* Sets callback on days input update (#quote-total) */
     $('#days').on('change keyup cut paste input', sia.updateTotal);
+    
+    /* Callbacks for navbar behavior */
+    $('#nav-menu')
+    .on('shown.bs.collapse', function() {
+        $('.navbar-toggle').addClass('nav-active');
+    })
+    .on('hidden.bs.collapse', function() {
+        $('.navbar-toggle').blur();
+    });
+    
+    $('.navbar-toggle').focus(function (e) { 
+        $('.navbar-toggle').addClass('nav-active');
+    });
+    $('.navbar-toggle').blur(function (e) {
+        $('.navbar-toggle').removeClass('nav-active');
+        $('#nav-menu').collapse('hide');
+    });
+    
+    $('.navbar-toggle').hover(function () {
+        $(this).css('background-color', 'white');
+    }, function () {
+        $(this).css('background-color', 'transparent');
+    }
+);
 });

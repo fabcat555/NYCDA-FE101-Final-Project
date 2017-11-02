@@ -562,7 +562,23 @@ address {
     .navbar-toggle {
         margin-top: 20px;
     }
+
+    .nav-toggle-hover {
+        background-color: #ddd;
+    }
+
+    .navbar-default .navbar-toggle:hover {
+        background-color: transparent;
+    }
     
+    .navbar-default .navbar-toggle:active {
+        background-color: #ddd;
+    }
+
+    .nav-active {
+        background-color: #ddd !important;
+    }
+
     .navbar-right li a {
         line-height: 20px;
     }
