@@ -1,13 +1,8 @@
 const sia = {
     init: function() {        
-        fetch('https://scary-zombi-81366.herokuapp.com/superheroes/')
+        fetch('https://scary-zombie-81366.herokuapp.com/superheroes/')
         .then(function(response) {
-            if (response.ok) {
-                return response.json();
-            }
-            else {
-                throw Error(response.statusText);
-            }
+            return response.json();
         })
         .then(function(response) {
             $.each(response, function (i, superhero) { 
@@ -35,6 +30,7 @@ const sia = {
             });
         })
         .catch(function(error) {
+            throw Error(error);
             $('#noresults-msg').show();
         });
     },
