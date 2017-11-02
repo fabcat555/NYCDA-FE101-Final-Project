@@ -609,6 +609,10 @@ address {
     
     /* Hire us section */
     
+    #team-gallery {
+        max-height: 450px;
+    }
+
     #team img  {
         width: 200px;
         height: 150px;
