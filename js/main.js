@@ -40,6 +40,15 @@ const sia = {
         $('#modal-sh').modal('toggle', $(this));
     },
     
+    repositionModal: function(modal) {
+        dialog = modal.find('.modal-dialog');
+        modal.css('display', 'block');
+
+        // Sets a margin top to the modal based on the window height
+        dialog.css("margin-top", Math.max(0, ($(window).height() - dialog.height()) / 3));
+        console.log('ciaooo');
+    },
+    
     /* Populates modal with superhero image and description */
     populateModal: function(e) {
         const modal = $(this);
@@ -57,6 +66,8 @@ const sia = {
         modal.find('.sh-hire').unbind().one('click', function() {
             sia.addToHired(e);
         });
+
+        sia.repositionModal(modal);
     },
     
     /* Handles click event on team gallery's items */
@@ -205,6 +216,7 @@ $(document).ready(function(e) {
         $('#nav-menu').collapse('hide');
     });
     
+    /* Handles click outside of navbar on mobile */
     $(document).on('touchstart', function() {
         const isNavbarCollapsed = $('.navbar-toggle').attr('aria-expanded');
         if (isNavbarCollapsed) {
