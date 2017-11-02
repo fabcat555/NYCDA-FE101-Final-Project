@@ -200,13 +200,15 @@ $(document).ready(function(e) {
     $('#nav-menu').on('hidden.bs.collapse', function () {
         $('.navbar-toggle').blur();
     });
-
+    
     $('.navbar-toggle').blur(function (e) { 
         $('#nav-menu').collapse('hide');
     });
- 
+    
     $(document).on('touchstart', function() {
-        $('#nav-menu').collapse('hide');
-        alert('touch event fired');
+        const isNavbarCollapsed = $('.navbar-toggle').attr('aria-expanded');
+        if (isNavbarCollapsed) {
+            $('#nav-menu').collapse('hide');
+        }
     });
 });
