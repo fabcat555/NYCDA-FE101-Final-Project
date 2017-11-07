@@ -641,7 +641,13 @@ address {
     }
 }
 
-
+@media (max-width: 992px) {
+    /* About section */
+    
+    #about-2 {
+        margin-top: 20px;
+    }
+}
 
 
 
