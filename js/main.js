@@ -3,6 +3,8 @@ const sia = {
     fetch('https://scary-zombie-81366.herokuapp.com/superheroes/').then(function(response) {
       return response.json();
     }).then(function(response) {
+      $('#loading-msg').hide();
+
       $.each(response, function(i, superhero) {
         const superheroDiv = $('<div>', {
           class: 'col-lg-3 col-md-4 col-sm-6 col-xs-12 team-item',
@@ -27,6 +29,7 @@ const sia = {
         $('#team-gallery').append(superheroDiv);
       });
     }).catch(function(error) {
+      $('#loading-msg').hide();
       $('#noresults-msg').show();
     });
   },

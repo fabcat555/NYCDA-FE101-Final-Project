@@ -360,6 +360,10 @@ header {
     display: none;
 }
 
+#loading-msg {
+    color: black;
+}
+
 .team-item {
     margin-bottom: 15px;
     text-align: center;
