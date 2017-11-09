@@ -32,8 +32,7 @@ const sia = {
   },
 
   initMap: function() {
-    $('#map-container').fadeToggle();
-    window.scrollTo(0, document.body.scrollHeight);
+    $('#map-container').slideToggle();
   
     const mapContainer = document.getElementById('map');
     const mapCenter = {
@@ -267,7 +266,7 @@ const sia = {
     '<div id="bodyContent">'+
     '<p>90 John Street</p>' +
     '<p>New York, NY, 10038 USA</p>'
-    '</div>'+
+    '</div>' +
     '</div>';
     
     const infowindow = new google.maps.InfoWindow({
@@ -284,6 +283,8 @@ const sia = {
     });
   
     infowindow.open(map, marker);
+
+    $('html, body').animate({scrollTop: document.body.scrollHeight});
   },
   
   /* Triggers modal on team gallery's items */
@@ -485,7 +486,8 @@ $(document).ready(function(event) {
   $(document).on('touchstart', 'section, footer', sia.touchEvent);
 
   /* Sets callback on address click (shows Google Maps) */
-  $('address').on('click', function() {
+  $('#map-toggle').on('click', function(event) {
+    event.preventDefault();
     sia.initMap();
   });
 });

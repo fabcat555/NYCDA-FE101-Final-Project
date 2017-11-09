@@ -558,10 +558,13 @@ header {
 
 address {
     text-align: center;
-    cursor: pointer;
 }
 
-address:hover {
+#map-toggle {
+    color: white; 
+}
+
+#map-toggle:hover {
     color: #d6b4b4;
 }
 
