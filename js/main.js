@@ -454,7 +454,6 @@ const sia = {
   
   /* Handles touch event on mobile (collapses navbar if expanded) */
   touchEvent: function() {
-    alert('ciao');
     const isNavbarCollapsed = $('.navbar-toggle').attr('aria-expanded');
     if (isNavbarCollapsed) {
       $('#nav-menu').collapse('hide');
