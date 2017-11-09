@@ -258,6 +258,7 @@ const sia = {
     const mapOptions = {
       zoom: 16,
       center: mapCenter,
+      mapTypeControl: false,
       styles: styles
     };
     
@@ -480,8 +481,8 @@ $(document).ready(function(event) {
   $('#nav-menu').on('hidden.bs.collapse', sia.blurNavbar);
   $('.navbar-toggle').on('blur', sia.collapseNavbar);
   
-  /* Handles click outside of navbar on mobile */
-  $(document).on('touchstart', sia.touchEvent);
+  // /* Handles click outside of navbar on mobile */
+  // $(document).on('touchstart', sia.touchEvent);
 
   /* Sets callback on address click (shows Google Maps) */
   $('address').on('click', function() {
