@@ -463,6 +463,15 @@ header {
     text-decoration: none;
 }
 
+.tooltip.top .tooltip-inner {
+    background-color:#6f4f4f;
+    border: 2px solid rgb(251, 255, 27);
+    transition: all 3s;
+}
+.tooltip.top .tooltip-arrow {
+    border-top-color: #6f4f4f;
+}
+
 #quote-total {
     padding: 0;
 }
@@ -562,6 +571,7 @@ address {
 
 #map-toggle {
     color: white; 
+    text-decoration: underline !important;
 }
 
 #map-toggle:hover {
@@ -629,7 +639,7 @@ address {
     #team-gallery {
         max-height: 450px;
     }
-
+    
     #team img  {
         width: 200px;
         height: 150px;
@@ -653,16 +663,16 @@ address {
 }
 
 @media (max-width: 360px) {
-
+    
     /* Hire us section */
-
+    
     .caption h4 {
         width: 100%;
     }
 }
 
 @media (max-width: 992px) {
-
+    
     /* About section */
     
     #about-2 {
