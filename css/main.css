@@ -402,10 +402,6 @@ header {
     cursor: pointer;
 }
 
-.remove-btn:after {
-    content: '✖';
-}
-
 .disabled {
     opacity: 0.3;
     cursor: initial;
@@ -562,6 +558,24 @@ header {
 
 address {
     text-align: center;
+    cursor: pointer;
+}
+
+address:hover {
+    color: #d6b4b4;
+}
+
+#map {
+    width: 100%;
+    height: 400px;
+}
+
+#map-container {
+    display: none;
+}
+
+#map-content {
+    color: black;
 }
 
 @media (max-width: 768px) {
