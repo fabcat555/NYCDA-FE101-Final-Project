@@ -403,7 +403,7 @@ header {
 }
 
 .remove-btn:after {
-    content: '✖'; /* UTF-8 symbol */
+    content: '✖';
 }
 
 .disabled {
@@ -636,12 +636,16 @@ address {
 }
 
 @media (max-width: 360px) {
+
+    /* Hire us section */
+
     .caption h4 {
         width: 100%;
     }
 }
 
 @media (max-width: 992px) {
+
     /* About section */
     
     #about-2 {
