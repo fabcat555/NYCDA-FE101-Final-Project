@@ -263,7 +263,7 @@ const sia = {
     };
     
     const contentString = '<div id="map-content">'+
-    '<h1 id="firstHeading" class="firstHeading">NYCDA</h1>'+
+    '<h1 id="firstHeading" class="firstHeading">S.I.A.</h1>'+
     '<div id="bodyContent">'+
     '<p>90 John Street</p>' +
     '<p>New York, NY, 10038 USA</p>'
