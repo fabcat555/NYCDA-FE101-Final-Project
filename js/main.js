@@ -482,7 +482,7 @@ $(document).ready(function(event) {
   $('.navbar-toggle').on('blur', sia.collapseNavbar);
   
   // /* Handles click outside of navbar on mobile */
-  // $(document).on('touchstart', sia.touchEvent);
+  $(document).on('touchstart', 'section, footer', sia.touchEvent);
 
   /* Sets callback on address click (shows Google Maps) */
   $('address').on('click', function() {
