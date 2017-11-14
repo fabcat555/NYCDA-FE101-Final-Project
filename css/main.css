@@ -476,6 +476,10 @@ header {
     border-top-color: #6f4f4f;
 }
 
+.tooltip {
+    z-index: 0 !important;
+}
+
 #quote-total {
     padding: 0;
 }

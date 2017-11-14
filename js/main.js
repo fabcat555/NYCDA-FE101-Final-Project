@@ -406,9 +406,14 @@ const sia = {
   /* Updates quote total (#hire-us section) */
   updateTotal: function() {
     const hiredItems = $('.hired-item');
+    const daysInput = $('#days');
     let total = 0;
 
-    hiredItems.length === 1 ? $('#days').tooltip('show') : $('#days').tooltip('hide');
+    this.shownTooltip ? daysInput.tooltip('hide') : daysInput.tooltip('show');
+    if (!this.shownTooltip) {
+      this.shownTooltip = true;
+    }
+
     setTimeout(function() {
       $('.tooltip.top .tooltip-inner').css('border-color', 'white');
     }, 1000);
@@ -417,8 +422,8 @@ const sia = {
       total += $(this).data('price');
     });
     
-    const daysInput = parseInt($('#days').val());
-    const days = isNaN(daysInput) ? 0 : daysInput;
+    const daysValue = parseInt(daysInput.val());
+    const days = isNaN(daysValue) ? 0 : daysValue;
     
     if (days >= 0 && days <= 1000) {
       $('#quote-error').hide();
@@ -428,6 +433,8 @@ const sia = {
       $('#quote-error').show();
     }
   },
+
+  shownTooltip: false,
   
   /* Clears search box and triggers input change event */
   clearSearch: function() {
